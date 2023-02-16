@@ -1,7 +1,7 @@
 {
   "name": "primerentregaproyecto",
   "version": "1.0.0",
-  "type":"module",
+  "type": "module",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -10,7 +10,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.18.2"
+    "express": "^4.18.2",
+    "express-handlebars": "^6.0.7",
+    "multer": "^1.4.5-lts.1",
+    "socket.io": "^4.6.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.20"
