@@ -10,7 +10,7 @@ import {Server} from 'socket.io'
 import { info } from "console"
 import {ProductManager} from './models/ProductManajer.js'
 const productManager = new ProductManager('./models/productos.txt')
-//let mensajeServidor="mensaje del servidor"
+//let mensajeAltaProductoPorServidor="mensaje del servidor"
 //const upload=multer({dest:'src/public/img'})
 // Imagenes con formato
 const storage=multer.diskStorage({
@@ -51,14 +51,16 @@ app.get('/',(req,res)=>{
         tituloAlta:"Alta de Producto",
         tituloEliminacion:"Eliminar Producto",
         mensaje:"mundo"
+
     })
+    
 })
 
-app.get('/realTimeProducts',(req,res)=>{
-    res.render('realTimeProducts',{
-        listProducts
-    })
-})
+ app.get('/realTimeProducts',(req,res)=>{
+     res.render('realTimeProducts',{
+         listProducts
+     })
+ })
 
 io.on('connection',(socket)=>{
     console.log('conexion con socket')
@@ -68,7 +70,7 @@ io.on('connection',(socket)=>{
     })
     
     socket.on('creacion',info=>{
-        console.log(info)//captura info del cliente
+//        console.log(info)//captura info del cliente
 //        app.post('/api/products',info)
         info.id=ProductManager.incrementId()
         listProducts.push(info)    
